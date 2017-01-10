@@ -1,0 +1,15 @@
+const http = require('http');
+
+var url = process.argv[2];
+
+http.get(url, function callback(response) {
+    response.setEncoding("utf8");
+
+    // Long version
+    response.on("data", function(data) {
+        console.log(data);
+    })
+
+    // Shorthand
+    response.on("error", console.error);
+}).on('error', console.error);
